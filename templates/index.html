@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Legal Assistant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>⚖️ AI Legal Assistant</h1>
+
+    <p>Upload dokumen + tanya AI tentang isi dokumen</p>
+
+    <form method="POST" enctype="multipart/form-data">
+
+        <textarea
+            name="question"
+            placeholder="Tulis pertanyaan kamu di sini..."
+        ></textarea>
+
+        <input type="file" name="file" accept=".pdf">
+
+        <button type="submit">Ask AI</button>
+
+    </form>
+
+    {% if response %}
+
+    <div class="result">
+
+        <h2>AI Response</h2>
+
+        <p>{{ response }}</p>
+
+    </div>
+
+    {% endif %}
+
+</div>
+
+</body>
+</html>
